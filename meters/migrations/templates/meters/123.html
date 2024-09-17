@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'meters/css/styles.css' %}">
+    <meta charset="UTF-8">
+    <title>Display Value2</title>
+</head>
+<body>
+    <div class="data-item">
+        <p>Code: {{ value.code }}</p>
+        <p>Data: {{ value.data }}</p>
+        <p>Message: {{ value.msg }}</p>
+        <p>Status: {{ value.status }}</p>
+    </div>
+</body>
+</html>

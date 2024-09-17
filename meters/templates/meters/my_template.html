@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'meters/css/styles.css' %}">
+    <meta charset="UTF-8">
+    <title>Display Data</title>
+</head>
+<body>
+    <h1>API Response Data</h1>
+
+    <!-- Display general information -->
+    <div>
+        <p>Code: {{ value.code }}</p>
+        <p>Info: {{ value.info }}</p>
+        <p>Total Data: {{ value.data.totalData }}</p>
+        <p>Page Index: {{ value.data.pageIndex }}</p>
+        <p>Page Size: {{ value.data.pageSize }}</p>
+    </div>
+
+    <!-- Iterate over the nested data list and display each item -->
+    <h2>Data Items</h2>
+{% for item in value.data.data%}
+    <div class="data-item">
+        <p>Meter Address: {{ item.meteraddr }}</p>
+        <p>Meter Number: {{ item.meternumber }}</p>
+        <p>Read Date: {{ item.readdate }}</p>
+        <p>Valve Status: {{ item.valvestatus }}</p>
+        <p>Voltage: {{ item.voltage }}</p>
+        <p>Signal Quality (CSQ): {{ item.csq }}</p>
+        <p>IMEI: {{ item.imei }}</p>
+        <p>Battery Voltage: {{ item.batteryvoltage }}</p>
+        <p>Attack State: {{ item.attackstate }}</p>
+    </div>
+{% endfor %}
+</body>
+</html>

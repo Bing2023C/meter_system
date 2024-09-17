@@ -1,0 +1,14 @@
+.data-item {
+    background-color: #0000cc;
+    margin: 10px 0;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.data-item h3 {
+    color: #0000cc;
+}
+
+.data-item p {
+    color: #0000cc;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'meters/css/styles.css' %}">
+    <meta charset="UTF-8">
+    <title>Display Data</title>
+</head>
+<body>
+    <h1>API Response Data</h1>
+    <!-- General Information -->
+    <div>
+        <p>Code: {{ value.code }}</p>
+        <p>Info: {{ value.info }}</p>
+        <p>Total Data: {{ value.data.totalData }}</p>
+        <p>Page Index: {{ value.data.pageIndex }}</p>
+        <p>Page Size: {{ value.data.pageSize }}</p>
+    </div>
+
+    <!-- Data Items Table -->
+    <h2>Data Items</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Meter Address</th>
+                <th>Meter Number</th>
+                <th>Read Date</th>
+                <th>Valve Status</th>
+                <th>Voltage</th>
+                <th>Signal Quality (CSQ)</th>
+                <th>IMEI</th>
+                <th>Battery Voltage</th>
+                <th>Attack State</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in value.data.data %}
+            <tr>
+                <td>{{ item.meteraddr }}</td>
+                <td>{{ item.meternumber }}</td>
+                <td>{{ item.readdate }}</td>
+                <td>{{ item.valvestatus }}</td>
+                <td>{{ item.voltage }}</td>
+                <td>{{ item.csq }}</td>
+                <td>{{ item.imei }}</td>
+                <td>{{ item.batteryvoltage }}</td>
+                <td>{{ item.attackstate }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
